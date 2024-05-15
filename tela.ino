@@ -1,7 +1,14 @@
+#include <LiquidCrystal_I2C.h>  // Download: www.arduino.cc/reference/en/libraries/liquidcrystal-i2c/
+
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+
+
 void iniciaDisplay() {
 
   lcd.begin(16, 2);
   lcd.init();
+
+  msgInicial();
 }
 
 void msgInicial() {
@@ -43,6 +50,41 @@ void msgInicial() {
   piscaLcd();
 }
 
+void msgConectando() {
+
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print(" Conectando ao  ");
+  lcd.setCursor(0, 1);
+  lcd.print("      WiFi      ");
+}
+
+void msgConectado(String wifiConectado) {
+
+  piscaLcdDuplo();
+
+  lcd.setCursor(0, 0);
+  lcd.print("   Conectado!   ");
+
+  lcd.setCursor(0, 1);
+  lcd.print("WiFi: " + wifiConectado);
+
+  delay(1000);
+}
+
+void msgErroConexao(String status) {
+
+  piscaLcdTriplo();
+
+  lcd.setCursor(0, 0);
+  lcd.print("      Erro      ");
+
+  lcd.setCursor(0, 1);
+  lcd.print(status);
+
+  delay(1000);
+}
+
 void piscaLcd() {
 
   lcd.clear();
@@ -55,20 +97,22 @@ void piscaLcdDuplo() {
 
   lcd.clear();
   lcd.setBacklight(LOW);
-  delay(100);
+  delay(150);
   lcd.setBacklight(HIGH);
-  delay(100);
+  delay(150);
   lcd.setBacklight(LOW);
-  delay(100);
+  delay(150);
   lcd.setBacklight(HIGH);
 }
 
-void telaEspera() {
+void piscaLcdTriplo() {
 
   lcd.clear();
-  lcd.setCursor(0, 0);
-  lcd.print("   SmartHome    ");
-
-  lcd.setCursor(0, 1);
-  lcd.print("    Versao 2    ");
+  lcd.setBacklight(LOW);
+  delay(250);
+  lcd.setBacklight(HIGH);
+  delay(250);
+  lcd.setBacklight(LOW);
+  delay(250);
+  lcd.setBacklight(HIGH);
 }
