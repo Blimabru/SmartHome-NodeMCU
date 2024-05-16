@@ -1,3 +1,4 @@
+// Credenciais Wi-Fi
 void credenciaisWifi() {
 
   // Cadastrar múltiplas redes Wi-Fi
@@ -8,3 +9,6 @@ void credenciaisWifi() {
   wifiMulti.addAP("SSID 5", "Senha 5");
   // ...
 }
+
+// URL para o arquivo "conexao.php" que está no servidor WEB, altere conforme necessário
+String url = "http://www.google.com";
