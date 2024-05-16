@@ -7,4 +7,6 @@ void setup() {
 }
 
 void loop() {
+  verificarTemperatura();
+  verificarUmidade();
 }
