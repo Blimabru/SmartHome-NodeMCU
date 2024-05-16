@@ -1,4 +1,4 @@
-#include <ESP8266WiFiMulti.h>
+#include <ESP8266WiFiMulti.h> //https://arduino.esp8266.com/stable/package_esp8266com_index.json
 
 ESP8266WiFiMulti wifiMulti;  // Instancia um objeto ESP8266WiFiMulti chamado wifiMulti
 
@@ -24,7 +24,8 @@ void conectaWifi() {
       Serial.print("Conectado a: ");
       Serial.println(WiFi.SSID());
       Serial.print("\nIP local: ");
-      Serial.println(WiFi.localIP() + "\n");
+      Serial.println(WiFi.localIP());
+      Serial.println("\n");
 
       conectado = true;
 
