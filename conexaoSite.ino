@@ -15,8 +15,6 @@ void enviaRequisicaoPOST(String sensor, String valor) {
   // Dados para enviar via POST
   String parametros = "sensor=" + sensor + "&valor=" + valor;
 
-  Serial.println("\n\n\nQuery:" + parametros + "\n\n\n");
-
   // Envia requisição POST
   int httpResponseCode = http.POST(parametros);
 
@@ -26,13 +24,15 @@ void enviaRequisicaoPOST(String sensor, String valor) {
     String response = http.getString();  // Obter a resposta do servidor
 
     Serial.println(httpResponseCode);   // Imprimir código de resposta
+    Serial.println("\n");
     Serial.println(response);           // Imprimir resposta do servidor
+    Serial.println("\n");
     
   } else {
 
     Serial.print("Erro na requisição POST: ");
-
     Serial.println(httpResponseCode);
+    Serial.println("\n");
   }
 
   // Finaliza a requisição
