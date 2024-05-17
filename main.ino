@@ -9,4 +9,5 @@ void setup() {
 void loop() {
   verificarTemperatura();
   verificarUmidade();
+  delay(2000);
 }
